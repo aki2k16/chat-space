@@ -1,28 +1,53 @@
-== README
+----------
+#Structure of database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#users
+List of columns
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- id
+- name     (name)
+ - null:false
+- email_address (integer)
+ - null:false, unique:true
+- pass_word(integer)
+ - null:false
+- add_index:name, email
+
+#messages
+Associate with groups table, users table and group_users table.
+List of columns
+
+
+
+- id
+- body     (text:)
+- image    (string)
+- group_id (integer)
+    - foreign_key:true
+- user_id  (integer)
+    - foreign-key:true
+- group_users_id (integer)
+    - foreign_key:true
+
+#groups
+Associate with group_users table.
+List of columns
+
+
+  - id
+  - name     (text)
+    - null:false
+
+#group_users
+Assosiates with users table, groups table and groups_users table.
+List of columns
+
+
+  - user_id  (integer)
+    - foreign_key:true
+  - group_id (integer)
+    - foreifn_key:true
+  - message_id (integer)
+    - foreign_key:true
+
