@@ -11,15 +11,15 @@
   - has_many :groups_users
   - has_many :messages
  - messages
-  - belongs_to :users
-  - belongs_to :groups
+  - belongs_to :user
+  - belongs_to :group
  - groups
   - has_many :users, through, group_users
   - has_many :group_users
   - has_many :messages
  - groups_users
-  - belongs_to :users
-  - belongs_to :groups
+  - belongs_to :user
+  - belongs_to :group
 ----------
 #users
 List of columns
