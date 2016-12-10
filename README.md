@@ -1,53 +1,68 @@
 ----------
 #Structure of database
+####制約
+ - NOT NULL制約 = null false
+ - 一意性制約      = unique true
+ - 外部キー制約  = foreign_key true  
 
-#users
+
+----------
+
+
+#### Table間のアソシーション
+ - users
+  - has_many :groups, through, group_users table
+  - has_many :groups_users
+  - has_many :messages
+ - messages
+  - belongs_to :users
+  - belongs_to :groups
+ - groups
+  - has_many :users, through, group_users table
+  - has_many :group_users
+  - has_many :messages
+ - group_users
+  - belongs_to :users
+  - belongs_to :groups
+ 
+
+
+----------
+
+
+#users 
 List of columns
-
-
-- id
-- name     (name)
- - null:false
-- email_address (integer)
- - null:false, unique:true
-- pass_word(integer)
- - null:false
-- add_index:name, email
-
+| columns    | type        |restriction |
+|:-----------|:------------|:-------------| 
+| id         |             |           | 
+| name       |text         |null :flase|
+| email      |string       |null :false, unique :true|
+| pass_word  |string       |null :false|
+####nameとemailにindexを貼る。
 #messages
-Associate with groups table, users table and group_users table.
-List of columns
-
-
-
-- id
-- body     (text:)
-- image    (string)
-- group_id (integer)
-    - foreign_key:true
-- user_id  (integer)
-    - foreign-key:true
-- group_users_id (integer)
-    - foreign_key:true
-
+List of columns 
+| columns    | type        | restriction |
+|:-----------|:------------|:------------|
+| id         |             |             |
+| text       | text        | null :false |
+| image      | text        |             |
+| users_id   |             |             |
+| group_id   |             |             |
+|created_at  |             |             |
+####textとcreated_atにインデックスを貼る。
 #groups
-Associate with group_users table.
 List of columns
-
-
-  - id
-  - name     (text)
-    - null:false
-
+| columns     | type        | restriction |
+|:----------- |:------------|:------------|
+| id          |             |             |
+| group_name  | text        | null :false, unique :false |
+| user_id     |             |             |
+| message_id  |             |             |
+####group_nameにインデックスを貼る。
 #group_users
-Assosiates with users table, groups table and groups_users table.
 List of columns
-
-
-  - user_id  (integer)
-    - foreign_key:true
-  - group_id (integer)
-    - foreifn_key:true
-  - message_id (integer)
-    - foreign_key:true
-
+| columns    | type        | restriction |
+|:-----------|:------------|:------------|
+|id          |             |             |
+|group_id    |             |             |
+|user_id     |             |             |
