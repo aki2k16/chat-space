@@ -45,7 +45,7 @@ List of columns
 |:----------- |:------------|:------------|
 | group_name  | string      | null :false, unique :false|
 ####group_nameにインデックスを貼る。
-#groups_user
+#groups_users
 List of columns
 | columns    | type        | restriction |
 |:-----------|:------------|:------------|
