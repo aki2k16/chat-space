@@ -1,12 +1,33 @@
+$notice: #38aef0;
+$fontcolor: #fff;
+
 html, body {
   height: 100%;
 }
 
+@mixin favicon{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+
 p.notice {
-  background-color: #38aef0;
+  background-color: $notice;
   text-align: center;
   width: 100%;
-  color: #fff;
+  color: $fontcolor;
+}
+
+h5 {
+  float: left;
+  line-height: 60px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px;
+  color: white;
 }
 
 .chat {
@@ -26,53 +47,37 @@ p.notice {
   height: 100px;
   width: 300px;
 
-    h5 {
-      float: left;
-      line-height: 60px;
-      letter-spacing: 2px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      padding: 20px;
-    }
-
-        .chat-user__actions {
+    &__actions {
           line-height: 60px;
           float: right;
           padding: 20px;
-        .chat-user__action {
-          font-size: 20px;
+    }
+    &__action {
+      font-size: 20px;
+      color: $fontcolor;
 
           i.fa.fa-pencil-square-o {
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
-            color: #fff;
+            @include favicon
               }
 
           i.fa.fa-cog {
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
-            color: #fff;
+            @include favicon
           }
-        }
         }
 }
 
+
+
 .chat-group {
   padding: 20px;
-  color: #fff;
+  color: $fontcolor;
 
-  p.chat-group__name {
+   &__name {
     font-size: 15px;
     margin-bottom: 5px;
   }
-
-  p.chat-group__message {
-    font-size: 11px;
+    &__message {
+     font-size: 11px;
   }
 }
 
@@ -89,10 +94,10 @@ p.notice {
   height: 100px;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: #fff;
+  background-color: $fontcolor;
   border-bottom: 1px solid #eee;
 
-    .chat-header--left {
+    &--left {
       float: left;
 
       h2 {
@@ -104,15 +109,16 @@ p.notice {
         font-weight: 400;
       }
 
-          .chat-header__users {
-            line-height: 20px;
-            color: #999;
-            font-size: 12px;
-          }
+      .chat-header__users {
+        line-height: 20px;
+        color: #999;
+        font-size: 12px;
+      }
     }
 
-    .chat-header--right {
+    &--right {
       float: right;
+
         a.chat-header__edit-btn {
           display: inline-block;
           margin: 28px 0;
@@ -175,14 +181,12 @@ p.notice {
   padding: 20px 40px;
   background-color: #ddd;
   clear: both;
-  }
 
-  .chat-footer__body {
+  &__body {
     float: left;
     width: calc(100% - 115px);
     height: 50px;
     position: relative;
-    }
 
     textarea {
       width: 100%;
@@ -206,11 +210,9 @@ p.notice {
       }
 
           i.fa.fa-image {
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
+            @include favicon
           }
+    }
 
     input {
       float: left;
@@ -218,12 +220,13 @@ p.notice {
       width: 100px;
       margin-left: 15px;
       line-height: 50px;
-      color: #fff;
+      color: $fontcolor;
       background-color: #38aef0;
       text-align: center;
       border: none;
       padding: 0;
-    }
+  }
+}
 
 .clearfix:after {
     content: '';
