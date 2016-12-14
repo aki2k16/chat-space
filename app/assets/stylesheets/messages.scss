@@ -1,0 +1,232 @@
+html, body {
+  height: 100%;
+}
+
+p.notice {
+  background-color: #38aef0;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+}
+
+.chat {
+  min-width: 980px;
+  height: 100%;
+}
+
+.chat-side {
+  float: left;
+  width: 300px;
+  height: 100%;
+  background-color: #2f3e51;
+}
+
+.chat-user {
+  background-color: #253141;
+  height: 100px;
+  width: 300px;
+
+    h5 {
+      float: left;
+      line-height: 60px;
+      letter-spacing: 2px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      padding: 20px;
+    }
+
+        .chat-user__actions {
+          line-height: 60px;
+          float: right;
+          padding: 20px;
+        .chat-user__action {
+          font-size: 20px;
+
+          i.fa.fa-pencil-square-o {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            color: #fff;
+              }
+
+          i.fa.fa-cog {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            color: #fff;
+          }
+        }
+        }
+}
+
+.chat-group {
+  padding: 20px;
+  color: #fff;
+
+  p.chat-group__name {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  p.chat-group__message {
+    font-size: 11px;
+  }
+}
+
+.chat-main {
+  box-sizing: border-box;
+  float: left;
+  position: relative;
+  width: calc(100% - 300px);
+  height: 100%;
+  background-color: #eee;
+}
+
+.chat-header {
+  height: 100px;
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+
+    .chat-header--left {
+      float: left;
+
+      h2 {
+        margin-top: 20px;
+        line-height: 50px;
+        letter-spacing: 2px;
+        color: #333;
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+          .chat-header__users {
+            line-height: 20px;
+            color: #999;
+            font-size: 12px;
+          }
+    }
+
+    .chat-header--right {
+      float: right;
+        a.chat-header__edit-btn {
+          display: inline-block;
+          margin: 28px 0;
+          padding-right: 20px;
+          padding-left: 20px;
+          line-height: 40px;
+          color: #38aef0;
+          font-size: 14px;
+          border: 2px solid;
+        }
+    }
+}
+
+.chat-body {
+  position: relative;
+  padding: 30px 0;
+  height: calc(100% - 190px);
+  overflow-y: scroll;
+
+    ul.chat-messages {
+      position: absolute;
+      right: 40px;
+      left: 40px;
+      padding: 0;
+      list-style: none;
+
+        li.chat-message {
+          margin-bottom: 40px;
+        }
+
+.chat-message__header {
+  line-height: 20px;
+}
+
+  p.chat-message__name {
+    float: left;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+  p.chat-message__time {
+    padding: 5px;
+    float: left;
+    margin-left: 10px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+   p.chat-message__body {
+    font-size: 14px;
+    }
+  }
+}
+
+.chat-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px 40px;
+  background-color: #ddd;
+  clear: both;
+  }
+
+  .chat-footer__body {
+    float: left;
+    width: calc(100% - 115px);
+    height: 50px;
+    position: relative;
+    }
+
+    textarea {
+      width: 100%;
+      padding:15px 0 15px 5px;
+      line-height: 20px;
+      border: none;
+      resize: none;
+      display: block;
+      }
+
+      .chat-footer__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        width: 40px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+          i.fa.fa-image {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+          }
+
+    input {
+      float: left;
+      display: inline-block;
+      width: 100px;
+      margin-left: 15px;
+      line-height: 50px;
+      color: #fff;
+      background-color: #38aef0;
+      text-align: center;
+      border: none;
+      padding: 0;
+    }
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
