@@ -1,9 +1,18 @@
 $white: #fff;
+$font-size: 14px;
+$display: block;
+$display1: inline-block;
+$margin: 20px;
+$margin2: 10px;
+$padding: 10px;
+$font-weight: 200;
+$field-color: #d65f4c;
+$blue: #38aef0;
 
 @mixin clearfix {
     clear: both;
     content: "";
-    display: block;
+    display: $display;
 }
 
 .account-page {
@@ -26,42 +35,42 @@ $white: #fff;
 
   .account-page__header {
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: $margin2;
       letter-spacing: 3px;
       font-size: 40px;
-      font-weight: 200;
+      font-weight: $font-weight;
 
       &:after {
         content: '';
-        display: block;
+        display: $display;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid $blue;
       }
     }
 
     h5 {
-      margin-bottom: 20px;
-      font-size: 14px;
-      font-weight: 200;
+      margin-bottom: $margin;
+      font-size: $font-size;
+      font-weight: $font-weight;
     }
 
     .btn {
-      margin-top: 20px;
+      margin-top: $margin;
       color: $white;
       background-color: #ccc;
-      font-size: 14px;
+      font-size: $font-size;
     }
   }
 
   .field {
-    margin-bottom: 10px;
+    margin-bottom: $margin2;
 
     &-label {
-      padding: 10px 0;
+      padding: $padding 0;
       letter-spacing: 1px;
-      font-size: 14px;
-      font-weight: 200;
+      font-size: $font-size;
+      font-weight: $font-weight;
 
       i {
         font-size: 11px;
@@ -71,14 +80,14 @@ $white: #fff;
     &-input {
       input {
         width: 100%;
-        padding: 10px;
+        padding: $padding;
         letter-spacing: 1px;
       }
     }
   }
 
   .btn {
-    display: inline-block;
+    display: $display1;
     height: 50px;
     padding: 0 30px;
     line-height: 50px;
@@ -90,15 +99,15 @@ $white: #fff;
 
   input[type='submit'] {
     float: left;
-    margin-top: 20px;
+    margin-top: $margin;
     color: $white;
-    background-color: #38aef0;
+    background-color: $blue;
   }
 
   .field-label {
     .field_with_errors {
-      display: inline-block;
-      color: #d65f4c;
+      display: $display1;
+      color: $field-color;
       font-weight: 400;
     }
   }
@@ -109,28 +118,28 @@ $white: #fff;
 
       &:after {
         content: '';
-        display: block;
+        display: $display;
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         width: 5px;
-        background-color: #d65f4c;
+        background-color: $field-color;
       }
     }
   }
 }
 
 #error_explanation {
-  margin: 20px 0;
+  margin: $margin 0;
   padding: 20px 30px;
   border: 1px solid #ddd;
   border-radius: 2px;
 
   h2 {
-    margin-bottom: 10px;
-    color: #d65f4c;
-    font-size: 14px;
+    margin-bottom: $margin2;
+    color: $field-color;
+    font-size: $font-size;
   }
 
   ul {
