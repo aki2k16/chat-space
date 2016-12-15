@@ -1,20 +1,26 @@
+$white: #fff;
+
+@mixin clearfix {
+    clear: both;
+    content: "";
+    display: block;
+}
+
 .account-page {
-  .account-page__inner {
+  &__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid #ddd;
     border-radius: 5px;
 
-    .account-page__inner--left, .account-page__inner--right {
+    &--left, &--right {
       float: left;
       width: 50%;
     }
     &:after {
-      clear: both;
-      content: "";
-      display: block;
+      @include clearfix
     }
   }
 
@@ -42,7 +48,7 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
+      color: $white;
       background-color: #ccc;
       font-size: 14px;
     }
@@ -51,7 +57,7 @@
   .field {
     margin-bottom: 10px;
 
-    .field-label {
+    &-label {
       padding: 10px 0;
       letter-spacing: 1px;
       font-size: 14px;
@@ -62,7 +68,7 @@
       }
     }
 
-    .field-input {
+    &-input {
       input {
         width: 100%;
         padding: 10px;
@@ -85,7 +91,7 @@
   input[type='submit'] {
     float: left;
     margin-top: 20px;
-    color: #fff;
+    color: $white;
     background-color: #38aef0;
   }
 
