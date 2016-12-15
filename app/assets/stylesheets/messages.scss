@@ -16,9 +16,20 @@ html, body {
 
 p.notice {
   background-color: $notice;
+  line-height: 30px;
   text-align: center;
   width: 100%;
   color: $fontcolor;
+  font-size: 18px;
+}
+
+p.alert {
+  background-color: red;
+  line-height: 30px;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 18px;
 }
 
 h5 {
