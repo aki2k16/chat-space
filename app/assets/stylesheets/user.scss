@@ -1,0 +1,156 @@
+$white: #fff;
+$font-size: 14px;
+$display: block;
+$display1: inline-block;
+$margin: 20px;
+$margin2: 10px;
+$padding: 10px;
+$font-weight: 200;
+$field-color: #d65f4c;
+$blue: #38aef0;
+
+@mixin clearfix {
+    clear: both;
+    content: "";
+    display: $display;
+}
+
+.account-page {
+  &__inner {
+    width: 980px;
+    margin: 60px auto;
+    padding: 60px;
+    background-color: $white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    &--left, &--right {
+      float: left;
+      width: 50%;
+    }
+    &:after {
+      @include clearfix
+    }
+  }
+
+  .account-page__header {
+    h2 {
+      margin-bottom: $margin2;
+      letter-spacing: 3px;
+      font-size: 40px;
+      font-weight: $font-weight;
+
+      &:after {
+        content: '';
+        display: $display;
+        width: 60px;
+        margin-top: 5px;
+        border-bottom: 1px solid $blue;
+      }
+    }
+
+    h5 {
+      margin-bottom: $margin;
+      font-size: $font-size;
+      font-weight: $font-weight;
+    }
+
+    .btn {
+      margin-top: $margin;
+      color: $white;
+      background-color: #ccc;
+      font-size: $font-size;
+    }
+  }
+
+  .field {
+    margin-bottom: $margin2;
+
+    &-label {
+      padding: $padding 0;
+      letter-spacing: 1px;
+      font-size: $font-size;
+      font-weight: $font-weight;
+
+      i {
+        font-size: 11px;
+      }
+    }
+
+    &-input {
+      input {
+        width: 100%;
+        padding: $padding;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .btn {
+    display: $display1;
+    height: 50px;
+    padding: 0 30px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+  }
+
+  input[type='submit'] {
+    float: left;
+    margin-top: $margin;
+    color: $white;
+    background-color: $blue;
+  }
+
+  .field-label {
+    .field_with_errors {
+      display: $display1;
+      color: $field-color;
+      font-weight: 400;
+    }
+  }
+
+  .field-input {
+    .field_with_errors {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: $display;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: $field-color;
+      }
+    }
+  }
+}
+
+#error_explanation {
+  margin: $margin 0;
+  padding: 20px 30px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+
+  h2 {
+    margin-bottom: $margin2;
+    color: $field-color;
+    font-size: $font-size;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 17px;
+    list-style: square;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+  }
+}

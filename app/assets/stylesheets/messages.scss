@@ -1,5 +1,6 @@
 $notice: #38aef0;
 $fontcolor: #fff;
+$padding: 20px;
 
 html, body {
   height: 100%;
@@ -26,7 +27,7 @@ h5 {
   letter-spacing: 2px;
   font-size: 16px;
   font-weight: bold;
-  padding: 20px;
+  padding: $padding;
   color: white;
 }
 
@@ -50,7 +51,7 @@ h5 {
     &__actions {
           line-height: 60px;
           float: right;
-          padding: 20px;
+          padding: $padding;
     }
     &__action {
       font-size: 20px;
