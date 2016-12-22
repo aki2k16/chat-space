@@ -48,6 +48,7 @@ h5 {
 }
 
 .chat-side {
+  overflow: scroll;
   float: left;
   width: 300px;
   height: 100%;
@@ -83,15 +84,37 @@ h5 {
 .chat-group {
   padding: 20px;
   color: $fontcolor;
+  height: 100%;
+
+}
+  li.chat-group {
+    padding: 20px;
+    decoration: none;
+
+ .chat-group-link {
+        display: block;
+        color: $fontcolor;
+        text-decoration: none;
+}
+
+
+    &:hover {
+    background-color: #435172;
+  }
 
    &__name {
+    color: $fontcolor;
     font-size: 15px;
     margin-bottom: 5px;
+    display: block;
   }
-    &__message {
-     font-size: 11px;
+   &__message {
+    font-size: 11px;
+    padding-bottom: $padding;
   }
 }
+
+
 
 .chat-main {
   box-sizing: border-box;
@@ -140,6 +163,7 @@ h5 {
           color: #38aef0;
           font-size: 14px;
           border: 2px solid;
+          text-decoration: none;
         }
     }
 }
