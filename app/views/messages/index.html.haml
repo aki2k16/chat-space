@@ -1,25 +1,30 @@
 .chat.clearfix
   .chat-side
     .chat-user.clearfix
-      %h5 Username
+      %h5
+        = current_user.name
       .chat-user__actions
-        %a.chat-user__action(href="")
+        %a.chat-user__action
+        = link_to new_group_path, class: "chat-user__action" do
           %i.fa.fa-pencil-square-o
-        %a.chat-user__action(href="")
+        %a.chat-user__action
+        = link_to edit_user_registration_path, class: "chat-user__action" do
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
-        %p.chat-group__name groupname
-        %p.chat-group__message helloworld
+            %p.chat-group__name
+              = simple_format(group.group_name)
+            %p.chat-group__message a
   .chat-main
     .chat-header.clearfix
       .chat-header--left
-        %h2 groupname
-        %p.chat-header__users<>
-          Members:
-          %span.chat-header__user username
+        %h2 a
+        %p.chat-header__users
+          Member:
+          %span.chat-header__user
+            = current_user.name
       .chat-header--right
-        %a.chat-header__edit-btn(href="")Edit
+        %a.chat-header__edit-btn edit
     .chat-body
       %ul.chat-messages
         %li.chat-message
@@ -30,7 +35,7 @@
     .chat-footer
       %form#new_message.new_message
         .chat-footer__body
-          %textarea#message_body{rows: "1", :name => "message[body]",  :placeholder => "type a message"}
+          %textarea#message_body{rows: "1", name: "message[body]",  placeholder: "type a message"}
           %label.chat-footer__image
             %i.fa.fa-image
-        %input{:type => "submit", :value => "send"}
+        %input{type: "submit", value: "send"}
