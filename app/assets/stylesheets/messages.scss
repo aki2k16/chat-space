@@ -224,7 +224,7 @@ h5 {
     height: 50px;
     position: relative;
 
-    textarea {
+    .message_body {
       width: 100%;
       padding:15px 0 15px 5px;
       line-height: 20px;
@@ -250,7 +250,7 @@ h5 {
           }
     }
 
-    input {
+    .input {
       float: left;
       display: inline-block;
       width: 100px;

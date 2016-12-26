@@ -21,9 +21,10 @@
             %p.chat-message__time 2016/12/25
             %p.chat-message__body hohoho
     .chat-footer
-      %form#new_message.new_message
+      #new_message.new_message
+      = form_for(@group) do |f|
         .chat-footer__body
           %textarea#message_body{rows: "1", name: "message[body]",  placeholder: "type a message"}
           %label.chat-footer__image
             %i.fa.fa-image
-        %input{type: "submit", value: "send"}
+        = f.submit "Save", method: :post
