@@ -13,16 +13,12 @@ class MessagesController < ApplicationController
 
  def create
   @message = Message.create(message_params)
-  if @message.save
-  redirect_to group_messages_path(params[:group_id]), notice: 'メッセージを送信しました。'
-  else
-  redirect_to group_messages_path(params[:group_id]), alert: 'メッセージを入力してください.'
-  end
+  redirect_to group_messages_path(params[:group_id])
  end
 
  private
  def message_params
-  params.require(:message).permit(:body, :group_id).merge(user_id:current_user.id ,group_id: params[:group_id])
+  params.require(:message).permit(:body, :group_id).merge(user_id: current_user.id ,group_id: params[:group_id])
  end
 
  def group_list
