@@ -11,25 +11,13 @@
           - @group.users.each do |user|
             = user.name
       .chat-header--right
-        %a.chat-header__edit
         = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn", method: :get
     .chat-body
-      %ul.chat-messages
-        - @group.messages.each do |message|
-          %li.chat-message
-            .chat-mssage__header.clearfix
-              %p.chat-message__name
-                = message.user.name
-              %p.chat-message__time
-                = message.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M:%S")
-            %p.chat-message__body
-              = message.body
+      = render 'message'
     .chat-footer
       = form_for [@group, @message], class:"new_message" do |f|
         .chat-footer__body
-          = f.text_area :body, class: "message_body", placeholder: "type a message", rows: "1" 
+          = f.text_area :body, class: "message_body", placeholder: "type a message", rows: "1"
           .chat-footer__image
             %i.fa.fa-image
-        = f.submit "Save", class:"input", method: :post
-
-
+        = f.submit "Save", class: "input", method: :post
