@@ -6,14 +6,13 @@ class MessagesController < ApplicationController
   @message = Message.new
  end
 
- def new
-  @group = Group.new
-  @message = Message.new
- end
-
  def create
   @message = Message.create(message_params)
-  redirect_to group_messages_path(params[:group_id])
+  if @message.save
+    redirect_to group_messages_path(params[:group_id]), notice: 'メッセージが送信されました。'
+  else
+    redirect_to group_messages_path(params[:group_id]), alert: 'メッセージを入力してください。'
+  end
  end
 
  private

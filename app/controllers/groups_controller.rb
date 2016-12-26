@@ -1,19 +1,20 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, :set_group, only: [:show, :update]
 
-  def new
-    @group = Group.new
-    @message = Message.new
-  end
-
   def index
     @groups = group_list
+  end
+
+  def new
+    @group = Group.new
   end
 
   def create
     @group = Group.create(group_params)
     if @group.save
       redirect_to group_messages_path(@group), notice: 'グループが作成されました。'
+    else
+      render :new
     end
   end
 
@@ -26,8 +27,11 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group.update(group_params)
-    redirect_to group_messages_path(@group), notice: 'グループが編集されました。'
+    if @group.update(group_params)
+       redirect_to group_messages_path(@group), notice: 'グループが編集されました。'
+    else
+      render :edit
+    end
   end
 
 
