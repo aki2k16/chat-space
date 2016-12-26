@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, :set_group, only: [:show, :update]
+  before_action :authenticate_user!, :set_group, only: [:show, :edit, :update]
 
   def index
     @groups = group_list
@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to group_messages_path(@group), notice: 'グループが作成されました。'
     else
+      flash.now[:alert] = 'グループ名を入力してください。'
       render :new
     end
   end
@@ -23,24 +24,26 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.includes(:users).find(params[:id])
   end
 
   def update
     if @group.update(group_params)
        redirect_to group_messages_path(@group), notice: 'グループが編集されました。'
     else
+      flash.now[:alert] = 'グループ名を入力してください。'
       render :edit
     end
   end
 
 
- private
+  private
+
   def set_group
     @group = Group.find(params[:id])
   end
+
   def group_params
-    params.require(:group).permit(:group_name, :group_id, {user_ids: []})
+    params.require(:group).permit(:group_name, user_ids: [])
   end
 
   def group_list
