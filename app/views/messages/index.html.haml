@@ -1,41 +1,23 @@
 .chat.clearfix
-  .chat-side
-    .chat-user.clearfix
-      %h5
-        = current_user.name
-      .chat-user__actions
-        %a.chat-user__action
-        = link_to new_group_path, class: "chat-user__action" do
-          %i.fa.fa-pencil-square-o
-        %a.chat-user__action
-        = link_to edit_user_registration_path, class: "chat-user__action" do
-          %i.fa.fa-cog
-    %ul.chat-groups
-      %li.chat-group
-            %p.chat-group__name
-              = simple_format(group.group_name)
-            %p.chat-group__message a
+  = render '/groups/sidebar', group: @group
   .chat-main
     .chat-header.clearfix
       .chat-header--left
-        %h2 a
-        %p.chat-header__users
+        %h2
+          = @group.group_name
+        %p.chat-header__users<>
           Member:
           %span.chat-header__user
-            = current_user.name
+          - @group.users.each do |user|
+            = user.name
       .chat-header--right
-        %a.chat-header__edit-btn edit
+        = link_to 'Edit', edit_group_path(@group), class: "chat-header__edit-btn", method: :get
     .chat-body
-      %ul.chat-messages
-        %li.chat-message
-          .chat-mssage__header.clearfix
-            %p.chat-message__name Santa Claus
-            %p.chat-message__time 2016/12/25
-          %p.chat-message__body hohoho
+      = render 'message'
     .chat-footer
-      %form#new_message.new_message
+      = form_for [@group, @message], class:"new_message" do |f|
         .chat-footer__body
-          %textarea#message_body{rows: "1", name: "message[body]",  placeholder: "type a message"}
-          %label.chat-footer__image
+          = f.text_area :body, class: "message_body", placeholder: "type a message", rows: "1"
+          .chat-footer__image
             %i.fa.fa-image
-        %input{type: "submit", value: "send"}
+        = f.submit "Save", class: "input", method: :post
