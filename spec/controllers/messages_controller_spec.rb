@@ -7,11 +7,10 @@ describe MessagesController do
 
 
   before do
-    # サインイン
     sign_in user
   end
 
-   after do
+  after do
     sign_out user
   end
 
@@ -37,27 +36,29 @@ describe MessagesController do
 
   describe 'Post #create' do
     let(:messages) {build(:messages)}
-    #データが登録できた場合。
-    it "save success" do
-      expect {
+    context 'success to save' do
+      it "save success" do
+        expect {
+          post :create, group_id: group.id, message: attributes_for(:message)
+        }.to change(Message, :count).by(1)
+      end
+      #トップ画面への遷移。
+      it "redirect to :index" do
         post :create, group_id: group.id, message: attributes_for(:message)
-      }.to change(Message, :count).by(1)
+        expect(response).to redirect_to group_messages_path
+      end
     end
-    #トップ画面への遷移。
-    it "redirect to :index" do
-      post :create, group_id: group.id, message: attributes_for(:message)
-      expect(response).to redirect_to group_messages_path
-    end
-    #データベースへ保存できない場合。
-    it "can not save in the database" do
-      expect{
+    context 'fail to save' do
+      it "can not save in the database" do
+        expect{
         post :create, group_id: group.id, message: attributes_for(:message, body: nil)
-      }.not_to change(Message, :count)
-    end
-    #トップ画面への遷移
-    it "redirects to messages#index" do
-      post :create, group_id: group.id, message: attributes_for(:message, body: nil)
-      expect(response).to redirect_to group_messages_path
+        }.not_to change(Message, :count)
+      end
+      #トップ画面への遷移。
+      it "redirects to messages#index" do
+        post :create, group_id: group.id, message: attributes_for(:message, body: nil)
+        expect(response).to redirect_to group_messages_path
+      end
     end
   end
 end
