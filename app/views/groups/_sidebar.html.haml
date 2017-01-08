@@ -16,4 +16,8 @@
           %p.chat-group__name
             = simple_format(group.group_name)
           %p.chat-group__message
+            -if last_message = group.messages.last
+              = last_message.body
+            -else
+              = "まだメッセージはありません。"
 
