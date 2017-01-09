@@ -11,7 +11,7 @@ $(function(){
 
    $('#new_message').on('submit', function(e){
      e.preventDefault();
-     var textField = $("#message_content")
+     var textField = $("#message_content");
      var message = textField.val();
        $.ajax({
          type: 'POST',
