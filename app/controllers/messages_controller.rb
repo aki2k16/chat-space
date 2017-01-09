@@ -4,15 +4,28 @@ class MessagesController < ApplicationController
   @groups = group_list
   @group = Group.find(params[:group_id])
   @message = Message.new
+  @messages = @group.messages
+  respond_to do |format|
+      format.html
+      format.json {render json: @messages.to_json}
+    end
  end
 
  def create
   @message = current_user.messages.new(message_params)
   if @message.save
-    redirect_to group_messages_path(params[:group_id]), notice: 'メッセージが送信されました。'
-  else
-    redirect_to group_messages_path(params[:group_id]), alert: 'メッセージを入力してください。'
-  end
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: 'メッセージを保存しました。' }
+        format.json { render json:{
+          body: @message.body,
+          name: @message.user.name,
+          created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+          }
+        }
+      end
+    else
+      redirect_to group_messages_path , alert: 'メッセージを記入してください。'
+    end
  end
 
  private
