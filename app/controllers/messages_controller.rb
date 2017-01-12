@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path, notice: 'メッセージを保存しました。' }
         format.json { render json:{
           body: @message.body,
+          image: @message.image.to_s,
           name: @message.user.name,
           created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S")
           }
@@ -31,7 +32,7 @@ class MessagesController < ApplicationController
  private
 
  def message_params
-  params.require(:message).permit(:body, :group_id).merge(group_id: params[:group_id])
+  params.require(:message).permit(:body, :image, :group_id).merge(group_id: params[:group_id])
  end
 
  def group_list
