@@ -15,9 +15,10 @@
     .chat-body
       = render 'message'
     .chat-footer
-      = form_for [@group, @message], class:"new_message" do |f|
+      = form_for [@group, @message], id: "new_message", class:"new_message" do |f|
         .chat-footer__body
           = f.text_area :body, id: "message_content", class: "message_body", placeholder: "type a message", rows: "1"
-          .chat-footer__image
+          %label.chat-footer__image
+            = f.file_field :image, style: "display:none;"
             %i.fa.fa-image
-        = f.submit "Save", id: "new_message", class: "input", method: :post
+        = f.submit "Save", class: "input", method: :post
