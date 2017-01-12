@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
           body: @message.body,
           image: @message.image.to_s,
           name: @message.user.name,
-          created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+          created_at: @message.date
           }
         }
       end
