@@ -7,7 +7,16 @@ CarrierWave.configure do |config|
   }
 
   config.cache_storage = :fog
-
+  case Rails.env
+    when 'production'
       config.fog_directory = 'chat-image'
       config.asset_host = 'https://chat-image.s3.amazonaws.com'
+
+    when 'development'
+      config.fog_directory = 'chat-image'
+      config.asset_host = 'https://chat-image.s3.amazonaws.com'
+
+    when 'test'
+      config.storage :file
+  end
 end
