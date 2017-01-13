@@ -39,11 +39,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'rails-controller-testing'
+  gem 'fog'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.0'
 
 group :test do
   gem 'faker'
@@ -59,4 +60,5 @@ gem 'devise'
 gem 'erb2haml'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
 
