@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path, notice: 'メッセージを保存しました。' }
         format.json { render json:{
           body: @message.body,
-          image: @message.image.to_s,
+          image: @message.image.url,
           name: @message.user.name,
           created_at: @message.date
           }
