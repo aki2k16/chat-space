@@ -46,7 +46,6 @@ $(function(){
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(function(){
         var messagelength = $('.chat-message').length;
-        console.log(messagelength)
         $.ajax(document.location.href + '.json',{
          type: 'GET',
          dataType: 'json'
@@ -54,7 +53,6 @@ $(function(){
       .done(function(data) {
         var datalength = data.message.length;
         for (var i = messagelength; i < datalength; i++) {
-          console.log(data.message[i]);
           var html = buildHTML(data.message[i]);
           $('.chat-messages').append(html);
        }
@@ -62,6 +60,6 @@ $(function(){
       .fail(function(){
         alert('エラーが発生しました。');
       });
-    },3000);
-   }
+    },10*1000);
+   };
  });
