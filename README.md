@@ -24,7 +24,7 @@
 #users
 List of columns
 |columns|type|restriction|
-|:--- |:--- |:--- |
+|:---|:---|:---|
 | name|text|null :flase|
 | email      |string       |null :false, unique :true|
 | pass_word  |string       |null :false|
@@ -44,15 +44,15 @@ List of columns
 #groups
 
 List of columns
-| columns     | type        | restriction |
-|:----------- |:------------|:------------|
-| group_name  | string      | null :false, unique :false|
+|columns|type|restriction |
+|:---|:---|:---|
+| group_name|string|null :false, unique :false|
 ####group_nameにインデックスを貼る。
 #groups_users
 
 List of columns
-| columns    | type        | restriction |
-|:-----------|:------------|:------------|
-|group_id    | references  | foreign_key :true |
-|user_id     | references  | foreign-key :true |
+|columns|type|restriction|
+|:---|:---|:---|
+|group_id|references|foreign_key :true|
+|user_id|references|foreign-key :true|
 
