@@ -3,7 +3,7 @@
 ####制約
  - NOT NULL制約 = null false
  - 一意性制約      = unique true
- - 外部キー制約  = foreign_key true  
+ - 外部キー制約  = foreign_key true
 ----------
 #### Table間のアソシーション
  - users
@@ -22,7 +22,9 @@
   - belongs_to :group
 ----------
 #users
+
 List of columns
+
 |columns|type|restriction|
 |:---|:---|:---|
 | name|text|null :flase|
@@ -44,6 +46,7 @@ List of columns
 #groups
 
 List of columns
+
 |columns|type|restriction |
 |:---|:---|:---|
 | group_name|string|null :false, unique :false|
@@ -51,6 +54,7 @@ List of columns
 #groups_users
 
 List of columns
+
 |columns|type|restriction|
 |:---|:---|:---|
 |group_id|references|foreign_key :true|
