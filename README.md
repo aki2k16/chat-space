@@ -23,14 +23,16 @@
 ----------
 #users
 List of columns
-| columns    | type        |restriction |
-|:-----------|:------------|:-------------|
-| name       |text         |null :flase|
+|columns|type|restriction|
+|:--- |:--- |:--- |
+| name|text|null :flase|
 | email      |string       |null :false, unique :true|
 | pass_word  |string       |null :false|
 ####nameとemailにindexを貼る。
 #messages
+
 List of columns
+
 | columns    | type        | restriction |
 |:-----------|:------------|:------------|
 | body       | text        | null :false |
@@ -40,14 +42,17 @@ List of columns
 |created_at  | inteegr     |             |
 ####textとcreated_atにインデックスを貼る。
 #groups
+
 List of columns
 | columns     | type        | restriction |
 |:----------- |:------------|:------------|
 | group_name  | string      | null :false, unique :false|
 ####group_nameにインデックスを貼る。
 #groups_users
+
 List of columns
 | columns    | type        | restriction |
 |:-----------|:------------|:------------|
 |group_id    | references  | foreign_key :true |
 |user_id     | references  | foreign-key :true |
+
