@@ -18,7 +18,7 @@ $(function(){
      return $('<li class="chat-message">').append(html);
    }
 
-   $('#new_message').on('submit', function(e){
+  $('#new_message').on('submit', function(e){
     var $form = this;
      e.preventDefault();
      var textField = $("#message_content");
@@ -41,5 +41,25 @@ $(function(){
          alert('メッセージを入力してください。');
        });
        return false;
-   });
+  });
+   //自動更新
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(function(){
+        var messagelength = $('.chat-message').length;
+        $.ajax(document.location.href + '.json',{
+         type: 'GET',
+         dataType: 'json'
+       })
+      .done(function(data) {
+        var datalength = data.message.length;
+        for (var i = messagelength; i < datalength; i++) {
+          var html = buildHTML(data.message[i]);
+          $('.chat-messages').append(html);
+       }
+      })
+      .fail(function(){
+        alert('エラーが発生しました。');
+      });
+    },10*1000);
+   };
  });
