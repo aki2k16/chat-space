@@ -40,6 +40,11 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'rails-controller-testing'
   gem 'fog'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
